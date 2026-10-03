@@ -1,41 +1,41 @@
-// Chapter 05: Our Memories Photo Gallery Data
-// Uses photos stored in public/photos/ with captions, dates, and story notes
+// Chapter 05: Data Galeri Kenangan Foto ("Semesta Kecil Kita")
+// Menggunakan foto yang tersimpan di public/photos/ dengan judul, tahun, caption, dan cerita manis
 
 export const photoMemories = [
   {
     id: "mem_1",
-    year: "2024",
-    title: "The Beginning",
+    year: "Awal Cerita",
+    title: "Momen Awal Pertemuan",
     image: "/photos/photo01.jpg",
-    caption: "Our first coffee date — where awkward hello turned into hours of nonstop laughter.",
-    location: "Cozy Corner Cafe",
-    note: "Kamu pesan minuman manis, tapi senyummu jauh lebih manis."
+    caption: "Kencan santai pertama kita — dari sapaan canggung sampai akhirnya ngobrol dan tertawa berjam-jam tanpa henti.",
+    location: "Sudut Cafe Favorit",
+    note: "Kamu pesan minuman manis, tapi senyummu jauh lebih manis dan bikin hatiku deg-degan."
   },
   {
     id: "mem_2",
-    year: "2025",
-    title: "Starry Nights & City Lights",
+    year: "Kenangan Indah",
+    title: "Bintang & Cahaya Kota",
     image: "/photos/photo02.jpg",
-    caption: "Watching the stars above while the whole world faded into the background.",
-    location: "Sunset Hilltop",
-    note: "Waktu itu dingin banget, tapi tanganmu bikin semuanya jadi hangat."
+    caption: "Menatap hamparan bintang di atas bukit sambil merasakan hangatnya kehadiranmu di sampingku.",
+    location: "Bukit Menatap Bintang",
+    note: "Waktu itu udaranya dingin banget, tapi genggaman tanganmu bikin seluruh duniaku jadi hangat."
   },
   {
     id: "mem_3",
-    year: "2025",
-    title: "Sunsets & Sweet Smiles",
+    year: "Momen Manis",
+    title: "Senja & Tawa Bahagia",
     image: "/photos/photo03.jpg",
-    caption: "Barefoot walks along the shore, eating ice cream and making silly wishes.",
-    location: "Golden Coast Beach",
-    note: "Momen ini selalu muter di kepalaku tiap kali denger suara ombak."
+    caption: "Jalan santai di tepi pantai, menikmati es krim bersama, dan tertawa lepas tanpa beban.",
+    location: "Pesisir Pantai Senja",
+    note: "Momen ini selalu berputar indah di kepalaku setiap kali mengingat tawamu yang riang."
   },
   {
     id: "mem_4",
-    year: "2026",
-    title: "Another Beautiful Year with You",
+    year: "Hari Ini & Selamanya",
+    title: "Tahun Baru yang Istimewa Bersamamu",
     image: "/photos/photo04.jpg",
-    caption: "Blowing out candles, dreaming big, and celebrating the wonderful person you are.",
-    location: "Our Warm Little World",
-    note: "Semoga lilin-lilin ini mengawali tahun terbaik dalam hidupmu."
+    caption: "Meniup lilin harapan, merayakan kehadiran sosok terindah yang selalu mewarnai hari-hariku.",
+    location: "Dunia Hangat Kita",
+    note: "Semoga lilin dan senyuman ini mengawali lembaran usia paling membahagiakan untukmu, sayang."
   }
 ];

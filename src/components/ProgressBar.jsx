@@ -3,14 +3,14 @@ import { Heart, Sparkles } from 'lucide-react';
 import { globalAudio } from '../utils/audioManager';
 
 const CHAPTERS = [
-  { id: 1, label: 'Intro' },
-  { id: 2, label: 'Verification' },
-  { id: 3, label: 'Quiz' },
-  { id: 4, label: 'Wishes' },
-  { id: 5, label: 'Memories' },
-  { id: 6, label: 'Letter' },
-  { id: 7, label: 'Certificate' },
-  { id: 8, label: 'Surprise' },
+  { id: 1, label: 'Pembuka' },
+  { id: 2, label: 'Verifikasi' },
+  { id: 3, label: 'Kuis' },
+  { id: 4, label: 'Harapan' },
+  { id: 5, label: 'Kenangan' },
+  { id: 6, label: 'Surat' },
+  { id: 7, label: 'Sertifikat' },
+  { id: 8, label: 'Kejutan' },
 ];
 
 export default function ProgressBar({ currentChapter, onSecretHeartTrigger }) {
@@ -36,18 +36,18 @@ export default function ProgressBar({ currentChapter, onSecretHeartTrigger }) {
     <header className="top-header">
       <div className="header-inner">
         <div className="header-top-row">
-          <button className="site-logo" onClick={handleHeartClick} title="A special heart for you ❤️">
+          <button className="site-logo" onClick={handleHeartClick} title="Hati spesial untuk Herlin ❤️">
             <Heart
               size={18}
               className={`logo-heart-icon ${isPulsing ? 'clicked' : ''}`}
               fill="var(--primary)"
             />
-            <span className="logo-text">Birthday Adventure</span>
+            <span className="logo-text">Petualangan Ulang Tahun</span>
           </button>
 
           <div className="header-status-pill">
             <Sparkles size={11} style={{ display: 'inline', marginRight: '4px', verticalAlign: '-1px' }} />
-            Chapter {currentChapter} of 7
+            Bab {currentChapter} dari 7
           </div>
         </div>
 

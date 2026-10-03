@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Cake, Sparkles, Heart, RotateCcw, Volume2, Flame, Award } from 'lucide-react';
+import React, { useState } from 'react';
+import { Cake, Sparkles, RotateCcw, Flame } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { globalAudio } from '../utils/audioManager';
 
@@ -79,17 +79,17 @@ export default function FinalSurprise({ config, onReplay, onReset }) {
           </div>
 
           <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.6rem', marginBottom: '12px' }}>
-            WAIT A SECOND...
+            TUNGGU SEBENTAR SAYANG...
           </h3>
 
           <p style={{ color: 'var(--dark-muted)', fontSize: '1.05rem', lineHeight: '1.7', marginBottom: '28px' }}>
-            I almost forgot the most important part of this journey.
+            Ada satu hal terpenting yang hampir aku lupakan.
             <br />
-            There is actually <strong>ONE MORE THING</strong> waiting for you...
+            Sebenarnya masih ada <strong>SATU KEJUTAN LAGI</strong> yang menunggumu...
           </p>
 
           <button className="btn-primary" onClick={startCountdown} id="btn-start-countdown">
-            READY TO SEE IT? ❤️
+            SIAP MELIHATNYA? ❤️
           </button>
         </div>
       )}
@@ -97,7 +97,7 @@ export default function FinalSurprise({ config, onReplay, onReset }) {
       {stage === 'countdown' && (
         <div style={{ padding: '60px 16px', animation: 'fadeIn 0.2s ease' }}>
           <p style={{ fontFamily: 'var(--font-playful)', fontSize: '1rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--secondary)', marginBottom: '16px' }}>
-            Get ready...
+            Bersiaplah dalam hitungan...
           </p>
 
           <div
@@ -118,7 +118,7 @@ export default function FinalSurprise({ config, onReplay, onReset }) {
 
       {stage === 'celebration' && (
         <div style={{ animation: 'scaleUp 0.4s ease', padding: '10px 0' }}>
-          {/* Confetti button re-trigger */}
+          {/* Confetti celebration icons */}
           <div style={{ marginBottom: '12px' }}>
             <span style={{ fontSize: '1.8rem', marginRight: '6px' }}>🎉</span>
             <span style={{ fontSize: '1.8rem', marginRight: '6px' }}>🎂</span>
@@ -128,7 +128,7 @@ export default function FinalSurprise({ config, onReplay, onReset }) {
           </div>
 
           <p style={{ fontFamily: 'var(--font-playful)', fontSize: '0.9rem', fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'var(--secondary)' }}>
-            HAPPY BIRTHDAY TO MY WHOLE WORLD
+            SELAMAT ULANG TAHUN UNTUK SEMESTAKU
           </p>
 
           <h1 className="section-title" style={{ fontSize: '2.5rem', color: 'var(--primary-dark)', margin: '8px 0 4px' }}>
@@ -136,7 +136,7 @@ export default function FinalSurprise({ config, onReplay, onReset }) {
           </h1>
 
           <p style={{ fontFamily: 'var(--font-script)', fontSize: '1.6rem', color: 'var(--secondary)', marginBottom: '24px' }}>
-            Today is all about celebrating you ❤️
+            Hari ini seutuhnya milikmu untuk dirayakan dengan penuh senyuman ❤️
           </p>
 
           {/* Interactive Birthday Cake */}
@@ -165,7 +165,7 @@ export default function FinalSurprise({ config, onReplay, onReset }) {
             <Cake size={60} color="#D81B60" style={{ margin: '0 auto 8px' }} />
 
             <p style={{ fontFamily: 'var(--font-playful)', fontSize: '0.85rem', fontWeight: 600, color: candlesBlown ? '#2E7D32' : 'var(--primary-dark)' }}>
-              {candlesBlown ? '✨ You made a wish! May all your dreams come true! ✨' : '🕯️ Click the cake to make a wish & blow out the candles!'}
+              {candlesBlown ? '✨ Lilin telah ditiup! Semoga seluruh impian manismu terkabul nyata! ✨' : '🕯️ Klik kuenya untuk tiup lilin & panjatkan doa terbaikmu!'}
             </p>
           </div>
 
@@ -200,12 +200,12 @@ export default function FinalSurprise({ config, onReplay, onReset }) {
           <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
             <button className="btn-secondary" onClick={launchCelebrationConfetti} style={{ width: '100%' }}>
               <Sparkles size={16} />
-              More Confetti! 🎉
+              Tambah Taburan Confetti Lagi! 🎉
             </button>
 
             <button className="btn-primary" onClick={onReplay} id="btn-replay">
               <RotateCcw size={16} />
-              Replay Birthday Experience 🔄
+              Putar Ulang Pengalaman Petualangan 🔄
             </button>
           </div>
 
@@ -222,7 +222,7 @@ export default function FinalSurprise({ config, onReplay, onReset }) {
                 textDecoration: 'underline',
               }}
             >
-              Reset saved progress (testing only)
+              Ulangi petualangan dari bab awal (reset progres)
             </button>
           </div>
         </div>

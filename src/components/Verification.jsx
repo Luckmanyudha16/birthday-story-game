@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Lock, CheckCircle2, XCircle, ShieldCheck, Heart, Sparkles, AlertCircle } from 'lucide-react';
+import { Lock, CheckCircle2, XCircle, ShieldCheck, Heart } from 'lucide-react';
 import { globalAudio } from '../utils/audioManager';
 
 export default function Verification({ config, onVerified, onTriggerEasterEgg }) {
@@ -29,7 +29,7 @@ export default function Verification({ config, onVerified, onTriggerEasterEgg })
     <div className="glass-card" style={{ maxWidth: '520px', width: '100%', margin: '0 auto', textAlign: 'center' }}>
       <span className="chapter-badge">
         <Lock size={12} />
-        Chapter 02 • Security Check
+        Bab 02 • Pengecekan Keamanan
       </span>
 
       <h2 className="section-title">
@@ -112,7 +112,7 @@ export default function Verification({ config, onVerified, onTriggerEasterEgg })
           </div>
 
           <h3 style={{ fontFamily: 'var(--font-heading)', color: '#C62828', fontSize: '1.3rem', marginBottom: '8px' }}>
-            ❌ Verification Incomplete
+            ❌ Verifikasi Belum Pas
           </h3>
 
           <p style={{ color: 'var(--dark-muted)', fontSize: '0.95rem', marginBottom: '16px', lineHeight: '1.6' }}>
@@ -120,11 +120,11 @@ export default function Verification({ config, onVerified, onTriggerEasterEgg })
           </p>
 
           <p style={{ fontSize: '0.88rem', fontStyle: 'italic', color: 'var(--secondary)', marginBottom: '24px' }}>
-            "Hmm... I think you need another try. Hari ini kamu dapet kesempatan tak terhingga! 😂"
+            "Hmm... coba tebak lagi ya sayang! Khusus hari ulang tahunmu, kesempatannya nggak terbatas kok! 😂"
           </p>
 
           <button className="btn-primary" onClick={handleReset}>
-            TRY AGAIN ❤️
+            COBA LAGI YA SAYANG ❤️
           </button>
         </div>
       )}
@@ -147,11 +147,11 @@ export default function Verification({ config, onVerified, onTriggerEasterEgg })
           </div>
 
           <h3 style={{ fontFamily: 'var(--font-heading)', color: '#2E7D32', fontSize: '1.4rem', marginBottom: '4px' }}>
-            ✅ VERIFIED ACCESS GRANTED
+            ✅ AKSES RESMI DIBERIKAN
           </h3>
 
           <p style={{ color: 'var(--dark-muted)', fontSize: '0.92rem', marginBottom: '18px' }}>
-            Identity confirmed with 100% highest clearance.
+            Identitas terkonfirmasi 100% sebagai pemilik hati paling istimewa.
           </p>
 
           <div style={{
@@ -165,7 +165,7 @@ export default function Verification({ config, onVerified, onTriggerEasterEgg })
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '10px' }}>
               <ShieldCheck size={20} color="#2E7D32" />
               <strong style={{ fontSize: '0.9rem', color: '#1B5E20' }}>
-                Assigned Royal Privileges:
+                Hak Istimewa yang Dianugerahkan:
               </strong>
             </div>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
@@ -189,7 +189,7 @@ export default function Verification({ config, onVerified, onTriggerEasterEgg })
           </div>
 
           <button className="btn-primary" onClick={onVerified} id="btn-continue-quiz">
-            CONTINUE TO CHAPTER 03 ❤️
+            LANJUT KE BAB 03 (KUIS) ❤️
           </button>
         </div>
       )}
@@ -199,7 +199,7 @@ export default function Verification({ config, onVerified, onTriggerEasterEgg })
         className="easter-egg-btn"
         onClick={() => onTriggerEasterEgg('systemError')}
       >
-        ⚠️ Test Security Protocol
+        ⚠️ Uji Protokol Keamanan
       </button>
     </div>
   );

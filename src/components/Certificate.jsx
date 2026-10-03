@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { Award, Download, Sparkles, CheckCircle, ArrowRight, Heart, Gift } from 'lucide-react';
+import { Award, Download, Gift } from 'lucide-react';
 import html2canvas from 'html2canvas';
 import { globalAudio } from '../utils/audioManager';
 
@@ -10,10 +10,10 @@ export default function Certificate({ config, onComplete }) {
 
   const achievements = [
     { title: "Birthday Girl", icon: "❤️" },
-    { title: "Birthday Survivor", icon: "🎂" },
-    { title: "Certified Cutie", icon: "⭐" },
-    { title: "Relationship Historian", icon: "💕" },
-    { title: "Professional Girlfriend", icon: "🏆" }
+    { title: "Pejuang Petualangan Cinta", icon: "🎂" },
+    { title: "Paling Manis & Gemas", icon: "⭐" },
+    { title: "Sejarawan Kisah Kita", icon: "💕" },
+    { title: "Pacar Terbaik Sedunia", icon: "🏆" }
   ];
 
   const handleDownload = async () => {
@@ -23,14 +23,14 @@ export default function Certificate({ config, onComplete }) {
 
     try {
       const canvas = await html2canvas(certRef.current, {
-        scale: 2, // Crisp retina resolution
+        scale: 2,
         useCORS: true,
         backgroundColor: '#FFFDF8',
       });
 
       const imgData = canvas.toDataURL('image/png');
       const link = document.createElement('a');
-      link.download = `Certificate-Birthday-Adventure-${config.recipientName.replace(/\s+/g, '_')}.png`;
+      link.download = `Sertifikat-Ulang-Tahun-${config.recipientName.replace(/\s+/g, '_')}.png`;
       link.href = imgData;
       link.click();
 
@@ -48,12 +48,12 @@ export default function Certificate({ config, onComplete }) {
     <div className="glass-card" style={{ maxWidth: '600px', width: '100%', margin: '0 auto', textAlign: 'center' }}>
       <span className="chapter-badge">
         <Award size={12} />
-        Chapter 07 • Graduation
+        Bab 07 • Kelulusan Misi
       </span>
 
-      <h2 className="section-title">🏆 CONGRATULATIONS!</h2>
+      <h2 className="section-title">🏆 SELAMAT, SAYANG!</h2>
       <p className="section-subtitle">
-        You have successfully completed every single mission of The Birthday Adventure!
+        Kamu telah berhasil menyelesaikan seluruh babak misi di The Birthday Adventure dengan sempurna!
       </p>
 
       {/* Achievement Badges */}
@@ -97,7 +97,7 @@ export default function Certificate({ config, onComplete }) {
           </div>
 
           <p style={{ fontFamily: 'var(--font-playful)', fontSize: '0.78rem', letterSpacing: '0.2em', textTransform: 'uppercase', color: '#8D6E63', fontWeight: 700, marginBottom: '4px' }}>
-            OFFICIAL DIGITAL CERTIFICATE
+            SERTIFIKAT DIGITAL RESMI
           </p>
 
           <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.7rem', color: '#3E2723', fontStyle: 'italic', marginBottom: '8px' }}>
@@ -105,20 +105,20 @@ export default function Certificate({ config, onComplete }) {
           </h3>
 
           <p style={{ color: '#5D4037', fontSize: '0.88rem', marginBottom: '14px', lineHeight: '1.5' }}>
-            has successfully and delightfully completed all stages of
+            telah berhasil dengan penuh senyuman dan cinta menyelesaikan seluruh babak di
             <br />
             <strong>THE BIRTHDAY ADVENTURE</strong>
           </p>
 
           <div style={{ display: 'inline-block', background: '#FFF8E1', border: '1px dashed #FFB300', padding: '6px 16px', borderRadius: 'var(--radius-full)', marginBottom: '16px' }}>
             <span style={{ fontSize: '0.88rem', fontWeight: 700, color: '#E65100' }}>
-              Final Rating: 100/100 • Certified Birthday Girl ⭐
+              Predikat Akhir: 100/100 • Birthday Girl Bersertifikat Resmi ⭐
             </span>
           </div>
 
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', borderTop: '1px solid rgba(212, 175, 55, 0.3)', paddingTop: '14px', marginTop: '8px' }}>
             <div style={{ textAlign: 'left' }}>
-              <span style={{ fontSize: '0.72rem', color: '#8D6E63', display: 'block' }}>Date Awarded:</span>
+              <span style={{ fontSize: '0.72rem', color: '#8D6E63', display: 'block' }}>Tanggal Diberikan:</span>
               <strong style={{ fontSize: '0.82rem', color: '#4E342E' }}>{config.birthdayDate}</strong>
             </div>
 
@@ -126,7 +126,7 @@ export default function Certificate({ config, onComplete }) {
               <span style={{ fontFamily: 'var(--font-script)', fontSize: '1.4rem', color: '#D81B60', display: 'block', lineHeight: '1' }}>
                 {config.senderName}
               </span>
-              <span style={{ fontSize: '0.72rem', color: '#8D6E63' }}>Authorized with Love ❤️</span>
+              <span style={{ fontSize: '0.72rem', color: '#8D6E63' }}>Disahkan Dengan Penuh Cinta ❤️</span>
             </div>
           </div>
         </div>
@@ -142,18 +142,18 @@ export default function Certificate({ config, onComplete }) {
           id="btn-download-cert"
         >
           <Download size={16} />
-          {isGenerating ? 'Generating Certificate PNG...' : '📸 SAVE CERTIFICATE AS IMAGE'}
+          {isGenerating ? 'Sedang membuat sertifikat PNG...' : '📸 SIMPAN SERTIFIKAT SEBAGAI GAMBAR (PNG)'}
         </button>
 
         {downloadSuccess && (
           <p style={{ color: '#2E7D32', fontSize: '0.85rem', fontWeight: 600 }}>
-            ✅ Certificate downloaded successfully to your device!
+            ✅ Sertifikat berhasil disimpan ke perangkatmu!
           </p>
         )}
 
         <button className="btn-primary" onClick={onComplete} id="btn-proceed-final" style={{ marginTop: '8px' }}>
           <Gift size={18} />
-          UNLOCK FINAL SURPRISE 🎁
+          BUKA KEJUTAN UTAMA 🎁
         </button>
       </div>
     </div>

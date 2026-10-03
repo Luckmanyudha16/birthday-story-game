@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Cake, Sparkles, Heart, Music, ArrowRight, ShieldCheck } from 'lucide-react';
+import { Cake, Sparkles, Heart, Music, ArrowRight } from 'lucide-react';
 import { globalAudio } from '../utils/audioManager';
 
 export default function Landing({ config, onStartMission, onTriggerEasterEgg }) {
@@ -8,11 +8,11 @@ export default function Landing({ config, onStartMission, onTriggerEasterEgg }) 
   const [isIntroComplete, setIsIntroComplete] = useState(false);
 
   const statusLogs = [
-    "Checking birthday status...",
-    "Checking cuteness levels...",
-    "Checking pure happiness...",
-    "Checking unlimited love...",
-    "Birthday Girl detected! ❤️"
+    "Memeriksa status hari ulang tahun...",
+    "Mengukur tingkat keimutan Herlin...",
+    "Memeriksa kadar kebahagiaan hati...",
+    "Menghitung cinta tak terhingga...",
+    "Birthday Girl terdeteksi! ❤️"
   ];
 
   useEffect(() => {
@@ -42,7 +42,7 @@ export default function Landing({ config, onStartMission, onTriggerEasterEgg }) 
   }, [progress]);
 
   const handleEnterExperience = () => {
-    // Initialize audio and start romantic background track
+    // Inisialisasi audio dan jalankan background musik romantis
     globalAudio.playTrack('background', config.music.background);
     globalAudio.playSfx('success');
     onStartMission();
@@ -57,7 +57,7 @@ export default function Landing({ config, onStartMission, onTriggerEasterEgg }) 
           </div>
 
           <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.4rem', marginBottom: '8px' }}>
-            Preparing Your Adventure...
+            Menyiapkan Petualangan Manis...
           </h3>
 
           <p style={{ color: 'var(--secondary)', fontSize: '0.9rem', marginBottom: '20px' }}>
@@ -85,7 +85,7 @@ export default function Landing({ config, onStartMission, onTriggerEasterEgg }) 
         <div className="glass-card" style={{ maxWidth: '520px', width: '100%', padding: '40px 24px' }}>
           <span className="chapter-badge">
             <Sparkles size={13} />
-            Chapter 01 • Mission Briefing
+            Bab 01 • Penjelasan Misi
           </span>
 
           <div style={{
@@ -104,11 +104,11 @@ export default function Landing({ config, onStartMission, onTriggerEasterEgg }) 
           </div>
 
           <p style={{ fontFamily: 'var(--font-playful)', fontSize: '0.85rem', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--secondary)' }}>
-            ✨ A VERY IMPORTANT MISSION ✨
+            ✨ SEBUAH MISI SANGAT PENTING ✨
           </p>
 
           <h1 className="section-title" style={{ marginTop: '6px', marginBottom: '4px', fontSize: '2.2rem' }}>
-            HAPPY BIRTHDAY
+            SELAMAT ULANG TAHUN
           </h1>
 
           <h2 style={{
@@ -129,7 +129,7 @@ export default function Landing({ config, onStartMission, onTriggerEasterEgg }) 
             marginBottom: '26px'
           }}>
             <p style={{ color: 'var(--dark-muted)', fontSize: '0.98rem', lineHeight: '1.6' }}>
-              "Before you receive your birthday surprise, there are a few little missions you need to complete together."
+              "Sebelum kamu membuka kejutan spesial ulang tahunmu, ada beberapa misi kecil penuh cinta yang harus kamu selesaikan terlebih dahulu."
             </p>
           </div>
 
@@ -143,11 +143,11 @@ export default function Landing({ config, onStartMission, onTriggerEasterEgg }) 
             fontFamily: 'var(--font-playful)'
           }}>
             <Music size={14} color="var(--primary-dark)" />
-            A little romantic music for your journey
+            Alunan musik romantis untuk menemani perjalananmu
           </div>
 
           <button className="btn-primary" onClick={handleEnterExperience} id="btn-start-mission">
-            START MISSION ❤️
+            MULAI PETUALANGAN CINTA ❤️
             <ArrowRight size={18} />
           </button>
 

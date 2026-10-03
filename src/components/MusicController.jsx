@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Volume2, VolumeX, Music, Sliders } from 'lucide-react';
+import { Volume2, VolumeX, Sliders } from 'lucide-react';
 import { globalAudio } from '../utils/audioManager';
 
 export default function MusicController() {
@@ -52,7 +52,7 @@ export default function MusicController() {
           }}
         >
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '0.75rem', fontWeight: 600, color: 'var(--secondary)' }}>
-            <span>Volume</span>
+            <span>Volume Suara</span>
             <span>{Math.round(audioState.volume * 100)}%</span>
           </div>
           <input
@@ -70,7 +70,7 @@ export default function MusicController() {
           />
           {audioState.usingFallback && (
             <span style={{ fontSize: '0.68rem', color: 'var(--primary-dark)', textAlign: 'center' }}>
-              ✨ Dreamy Synth Mode
+              ✨ Mode Melodi Syahdu
             </span>
           )}
         </div>
@@ -80,7 +80,7 @@ export default function MusicController() {
       <div
         className="floating-music-btn"
         onClick={handleToggleMute}
-        title={audioState.isMuted ? 'Turn Music ON' : 'Turn Music OFF'}
+        title={audioState.isMuted ? 'Nyalakan Musik' : 'Matikan Musik'}
       >
         <div className="music-icon-wrapper">
           {audioState.isMuted ? <VolumeX size={16} /> : <Volume2 size={16} />}
@@ -93,7 +93,7 @@ export default function MusicController() {
         </div>
 
         <span className="music-label">
-          {audioState.isMuted ? 'Music OFF' : audioState.currentTrack === 'birthday' ? 'Birthday Song 🎂' : 'Music ON'}
+          {audioState.isMuted ? 'Musik Mati' : audioState.currentTrack === 'birthday' ? 'Lagu Ultah 🎂' : 'Musik Nyala'}
         </span>
 
         <button
@@ -110,7 +110,7 @@ export default function MusicController() {
             display: 'flex',
             alignItems: 'center',
           }}
-          title="Adjust Volume"
+          title="Atur Volume"
         >
           <Sliders size={13} />
         </button>

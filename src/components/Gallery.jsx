@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Camera, X, ChevronLeft, ChevronRight, Heart, MapPin, Calendar, ArrowRight } from 'lucide-react';
+import { Camera, X, ChevronLeft, ChevronRight, MapPin, Calendar, ArrowRight } from 'lucide-react';
 import { photoMemories } from '../data/memories';
 import { globalAudio } from '../utils/audioManager';
 
@@ -35,11 +35,11 @@ export default function Gallery({ onComplete }) {
       <div style={{ textAlign: 'center', marginBottom: '24px' }}>
         <span className="chapter-badge">
           <Camera size={12} />
-          Chapter 05 • Polaroid Memories
+          Bab 05 • Galeri Kenangan Polaroid
         </span>
-        <h2 className="section-title">📸 OUR LITTLE UNIVERSE</h2>
+        <h2 className="section-title">📸 SEMESTA KECIL KITA</h2>
         <p className="section-subtitle">
-          A few cherished moments that became our favorite memories.
+          Beberapa momen indah yang berubah jadi kenangan paling manis.
         </p>
       </div>
 
@@ -61,7 +61,6 @@ export default function Gallery({ onComplete }) {
                 className="polaroid-img"
                 loading="lazy"
                 onError={(e) => {
-                  // Fallback cute placeholder if user custom image has broken link
                   e.target.src = 'https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=600&auto=format&fit=crop&q=80';
                 }}
               />
@@ -81,11 +80,11 @@ export default function Gallery({ onComplete }) {
 
       <div style={{ textAlign: 'center', marginTop: '36px' }}>
         <p style={{ fontStyle: 'italic', fontSize: '0.88rem', color: 'var(--secondary)', marginBottom: '18px' }}>
-          Tap any polaroid to view the story behind the snapshot ✨
+          Klik foto polaroid mana saja untuk melihat kisah di balik jepretannya ✨
         </p>
 
         <button className="btn-primary" onClick={onComplete} id="btn-proceed-letter">
-          CONTINUE TO CHAPTER 06 • LOVE LETTER ❤️
+          LANJUT KE BAB 06 • SURAT CINTA UNTUKMU ❤️
           <ArrowRight size={18} />
         </button>
       </div>
@@ -94,7 +93,7 @@ export default function Gallery({ onComplete }) {
       {activePhoto && (
         <div className="lightbox-overlay" onClick={closeLightbox}>
           <div className="lightbox-content" onClick={(e) => e.stopPropagation()}>
-            <button className="lightbox-close-btn" onClick={closeLightbox} aria-label="Close photo">
+            <button className="lightbox-close-btn" onClick={closeLightbox} aria-label="Tutup foto">
               <X size={20} />
             </button>
 
@@ -140,13 +139,13 @@ export default function Gallery({ onComplete }) {
             {/* Navigation arrows */}
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '16px', borderTop: '1px solid rgba(244, 143, 177, 0.2)', paddingTop: '12px' }}>
               <button className="btn-ghost" onClick={showPrev}>
-                <ChevronLeft size={16} /> Prev
+                <ChevronLeft size={16} /> Sebelumnya
               </button>
               <span style={{ fontSize: '0.78rem', color: 'var(--secondary)' }}>
-                {activePhotoIdx + 1} of {photoMemories.length}
+                {activePhotoIdx + 1} dari {photoMemories.length}
               </span>
               <button className="btn-ghost" onClick={showNext}>
-                Next <ChevronRight size={16} />
+                Selanjutnya <ChevronRight size={16} />
               </button>
             </div>
           </div>

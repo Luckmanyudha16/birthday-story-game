@@ -5,15 +5,15 @@
 
 export const birthdayConfig = {
   // Nama Pasangan / Birthday Girl
-  recipientName: "Adinda Putri",
+  recipientName: "Herlin Ochtorisa",
   recipientNickname: "Sayang",
 
   // Nama Pengirim / Pasangan
-  senderName: "Rama Pratama",
+  senderName: "Luckman Yudha",
 
   // Tanggal Ulang Tahun
-  birthdayDate: "04 Oktober 2026",
-  age: 22,
+  birthdayDate: "12 Oktober 2000",
+  age: 26,
 
   // Konfigurasi Musik
   music: {
@@ -24,15 +24,15 @@ export const birthdayConfig = {
 
   // Chapter 02: Love Verification
   verification: {
-    title: "LOVE VERIFICATION",
-    subtitle: "Before we continue... I need to make sure you're actually the real birthday girl.",
+    title: "VERIFIKASI CINTA 🔐",
+    subtitle: "Sebelum kita lanjut... aku harus memastikan kalau kamu benar-benar si birthday girl tercantik.",
     question: "Siapa orang paling beruntung di seluruh semesta karena bisa kenal dan dicintai kamu?",
     options: [
       {
         id: "opt_me",
-        text: "Aku (Rama), jelas pacar paling beruntung sedunia!",
+        text: "Aku (Luckman), jelas pacar paling beruntung sedunia!",
         isCorrect: true,
-        feedback: "Betul 100%! Nggak ada yang lebih bersyukur daripada aku ❤️"
+        feedback: "Betul 100%! Nggak ada yang lebih bersyukur dan bahagia daripada aku ❤️"
       },
       {
         id: "opt_cat",
@@ -44,7 +44,7 @@ export const birthdayConfig = {
         id: "opt_einstein",
         text: "Albert Einstein",
         isCorrect: false,
-        feedback: "Einstein pinter fisika, tapi dia nggak punya pacar seindah kamu :P"
+        feedback: "Einstein pinter fisika, tapi dia nggak punya bidadari seindah kamu :P"
       },
       {
         id: "opt_alien",
@@ -54,57 +54,55 @@ export const birthdayConfig = {
       }
     ],
     verifiedBadge: {
-      title: "VERIFIED",
-      roles: ["Official Birthday Girl", "Best Girlfriend", "Professional Cutie", "My Whole Heart"]
+      title: "TERVERIFIKASI RESMI",
+      roles: ["Birthday Girl Kesayangan", "Pacar Terbaik Sedunia", "Paling Cantik & Gemas", "Pemilik Hatiku"]
     }
   },
 
   // Chapter 06: Love Letter Personal
   letter: {
-    title: "FROM ME TO YOU",
-    opening: "Okay... No more questions. No more missions. Now I just want to tell you something from the bottom of my heart.",
+    title: "SURAT DARI HATIKU UNTUKMU",
+    opening: "Oke sayang... nggak ada lagi kuis. Nggak ada lagi misi. Sekarang aku cuma ingin menyampaikan sesuatu yang tulus dari lubuk hatiku yang terdalam.",
     paragraphs: [
-      "Selamat ulang tahun yang paling hangat untuk orang paling spesial di semestaku.",
-      "Waktu pertama kali kita kenal, aku nggak pernah menyangka kalau hari-hari ke depannya bakal seindah dan sebermakna ini bareng kamu. Kamu itu seperti rumah tempat aku selalu ingin pulang—tempat di mana aku bisa jadi diriku sendiri tanpa rasa takut sedikit pun.",
-      "Terima kasih sudah bertahan sejauh ini, terima kasih sudah selalu berjuang dengan tulus, terima kasih atas tawa renyahmu yang selalu berhasil menghapus penatku, dan terima kasih sudah memilih untuk terus melangkah bersamaku.",
-      "Di usiamu yang baru ini, aku berdoa semoga setiap langkahmu selalu dipeluk ketenangan dan hal-hal baik. Semoga mimpi-mimpimu yang besar itu pelan-pelan terwujud, dan setiap rasa lelahmu selalu digantikan oleh senyuman berlipat ganda.",
-      "Apapun yang ada di depan nanti, ingat ya: kamu nggak akan pernah sendirian. Ada aku yang selalu siap mendengarkan ceritamu, menggenggam tanganmu, dan bangga atas setiap prosesmu.",
-      "I love you more than words, codes, and all the stars in the night sky could ever measure. ❤️"
+      "Selamat ulang tahun yang paling hangat untuk orang paling spesial di seluruh semestaku, Herlin Ochtorisa.",
+      "Waktu pertama kali kita kenal dan dekat, aku nggak pernah menyangka kalau hari-hari ke depannya bakal seindah, sehangat, dan sebermakna ini bareng kamu. Kamu itu seperti rumah tempat aku selalu ingin pulang—tempat di mana aku bisa jadi diriku sendiri seutuhnya tanpa rasa ragu sedikit pun.",
+      "Terima kasih sudah bertahan sejauh ini, terima kasih sudah selalu berjuang dengan tulus dan penuh kasih, terima kasih atas tawa renyahmu yang selalu berhasil menghapus segala lelahku, dan terima kasih sudah memilih untuk terus melangkah bersamaku.",
+      "Di usiamu yang baru ini, doaku selalu menyertaimu: semoga setiap langkahmu selalu dipeluk ketenangan dan hal-hal baik. Semoga mimpi-mimpimu yang indah pelan-pelan terwujud nyata, dan setiap tetes lelahmu selalu digantikan oleh kebahagiaan berlipat ganda.",
+      "Apapun yang ada di depan nanti, ingat ya sayang: kamu nggak akan pernah sendirian. Ada aku yang selalu siap mendengarkan ceritamu, menggenggam erat tanganmu, dan selalu bangga melihat setiap prosesmu.",
+      "Aku mencintaimu lebih dari kata-kata, lebih dari baris kode, dan lebih dari ribuan bintang di langit malam. ❤️"
     ],
-    signoff: "With all my love,"
+    signoff: "Dengan segenap cintaku,"
   },
 
   // Final Birthday Surprise Screen Content
   finalSurprise: {
-    headline: "HAPPY BIRTHDAY",
-    subheadline: "TO MY FAVORITE PERSON IN THE WORLD ❤️",
+    headline: "SELAMAT ULANG TAHUN",
+    subheadline: "UNTUK ORANG PALING SPESIAL DI DUNIAKU ❤️",
     wishes: [
-      "I hope this year brings you closer to everything you dream of.",
-      "May your days be filled with endless laughter, gentle peace, and sweet adventures.",
-      "And if I'm lucky... I hope I get to be part of every single one of those moments."
+      "Semoga di tahun ini, kamu semakin dekat dengan semua impian yang kamu harapkan.",
+      "Semoga hari-harimu selalu dipenuhi oleh tawa bahagia, ketenangan hati, dan petualangan yang manis.",
+      "Dan kalau aku beruntung... aku ingin selalu ada di sampingmu untuk menemani setiap momen indah itu."
     ],
-    closing: "I LOVE YOU ALWAYS AND FOREVER."
+    closing: "AKU SAYANG KAMU SELALU DAN SELAMANYA."
   },
 
   // Google Apps Script Web App URL untuk pengiriman form wishes
-  // Masukkan URL deployment Google Apps Script Anda di sini.
-  // Contoh: "https://script.google.com/macros/s/AKfycbx.../exec"
   googleAppsScriptUrl: "",
 
   // Easter Eggs Texts
   easterEggs: {
     secretButton: {
-      label: "🐱 Don't click this",
-      message: "I literally told you not to click it! 😂\n\nAnyway... I love you so much ❤️"
+      label: "🐱 Jangan diklik ya!",
+      message: "Tuh kan dibilangin jangan diklik masih diklik juga! 😂\n\nTapi nggak apa-apa... Aku sayang banget sama kamu, Herlin! ❤️"
     },
     secretHeartClick: {
       requiredClicks: 5,
-      message: "🔓 SECRET UNLOCKED!\n\nYou found something you weren't supposed to find.\nI love you more than this website can calculate!"
+      message: "🔓 PESAN RAHASIA TERBUKA!\n\nWah, kamu berhasil nemuin sesuatu yang tersembunyi!\nAku sayang kamu jauh lebih besar daripada yang bisa dihitung website ini!"
     },
     systemError: {
-      title: "⚠️ SYSTEM OVERLOAD",
-      message: "Maximum cuteness detected in the system! Security protocol compromised by your smile.",
-      btnText: "CONTINUE ANYWAY ❤️"
+      title: "⚠️ SISTEM KEBANYAKAN MANIS",
+      message: "Peringatan Kritis: Terlalu banyak keimutan terdeteksi! Semua server mengalami panas berlebih gara-gara senyuman manis Herlin.",
+      btnText: "TETAP LANJUTKAN DENGAN CINTA ❤️"
     }
   }
 };

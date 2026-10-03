@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { HelpCircle, Check, X, Award, Sparkles, ArrowRight, RotateCcw } from 'lucide-react';
+import { HelpCircle, Check, X, Award, ArrowRight, RotateCcw } from 'lucide-react';
 import { quizQuestions } from '../data/questions';
 import { globalAudio } from '../utils/audioManager';
 
@@ -13,7 +13,7 @@ export default function Quiz({ onComplete }) {
   const currentQ = quizQuestions[currentIdx];
 
   const handleSelect = (idx) => {
-    if (feedback !== null) return; // Prevent double taps during feedback
+    if (feedback !== null) return;
     setSelectedOption(idx);
 
     const isCorrect = idx === currentQ.correctAnswer;
@@ -22,13 +22,13 @@ export default function Quiz({ onComplete }) {
       setCorrectCount((prev) => prev + 1);
       setFeedback({
         isCorrect: true,
-        text: currentQ.correctFeedback || "🎉 CORRECT! Apparently you still remember us. I'm impressed. ❤️",
+        text: currentQ.correctFeedback,
       });
     } else {
       globalAudio.playSfx('wrong');
       setFeedback({
         isCorrect: false,
-        text: currentQ.wrongFeedback || "Hmm... Are you sure? I'll give you another chance because today is your birthday! 😂",
+        text: currentQ.wrongFeedback,
       });
     }
   };
@@ -54,11 +54,11 @@ export default function Quiz({ onComplete }) {
       <div style={{ textAlign: 'center', marginBottom: '20px' }}>
         <span className="chapter-badge">
           <HelpCircle size={12} />
-          Chapter 03 • Memory Check
+          Bab 03 • Uji Memori Kisah Kita
         </span>
-        <h2 className="section-title">💕 DO YOU REMEMBER?</h2>
+        <h2 className="section-title">💕 MASIH INGAT NGGAK?</h2>
         <p className="section-subtitle">
-          Mari kita tes seberapa kuat memorimu tentang perjalanan kita bersama!
+          Yuk kita tes seberapa kuat memorimu tentang perjalanan cinta kita bersama!
         </p>
       </div>
 
@@ -67,7 +67,7 @@ export default function Quiz({ onComplete }) {
           {/* Question Counter Pill */}
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '14px' }}>
             <span style={{ fontFamily: 'var(--font-playful)', fontWeight: 700, fontSize: '0.82rem', color: 'var(--primary-dark)' }}>
-              Question {currentIdx + 1} of {quizQuestions.length}
+              Pertanyaan {currentIdx + 1} dari {quizQuestions.length}
             </span>
             <div style={{ display: 'flex', gap: '4px' }}>
               {quizQuestions.map((_, i) => (
@@ -179,7 +179,7 @@ export default function Quiz({ onComplete }) {
                     style={{ flex: 1, padding: '10px 14px', fontSize: '0.88rem' }}
                   >
                     <RotateCcw size={14} />
-                    Try Again
+                    Coba Lagi
                   </button>
                 )}
                 <button
@@ -187,7 +187,7 @@ export default function Quiz({ onComplete }) {
                   onClick={handleNext}
                   style={{ flex: 1, padding: '10px 14px', fontSize: '0.88rem' }}
                 >
-                  {currentIdx + 1 < quizQuestions.length ? 'Next Question' : 'View Results'}
+                  {currentIdx + 1 < quizQuestions.length ? 'Pertanyaan Selanjutnya' : 'Lihat Hasil Kuis'}
                   <ArrowRight size={15} />
                 </button>
               </div>
@@ -215,11 +215,11 @@ export default function Quiz({ onComplete }) {
           </div>
 
           <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.5rem', marginBottom: '6px' }}>
-            RELATIONSHIP MEMORY RESULT
+            HASIL UJI MEMORI KISAH KITA
           </h3>
 
           <p style={{ color: 'var(--secondary)', fontSize: '0.9rem', marginBottom: '20px' }}>
-            Answers Verified: {correctCount} / {quizQuestions.length}
+            Jawaban Tervalidasi: {correctCount} / {quizQuestions.length}
           </p>
 
           <div
@@ -233,7 +233,7 @@ export default function Quiz({ onComplete }) {
             }}
           >
             <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px', fontSize: '0.85rem', fontWeight: 600 }}>
-              <span style={{ color: 'var(--secondary)' }}>Memory Accuracy</span>
+              <span style={{ color: 'var(--secondary)' }}>Akurasi Memori</span>
               <span style={{ color: 'var(--primary-dark)' }}>98.5%</span>
             </div>
 
@@ -254,21 +254,21 @@ export default function Quiz({ onComplete }) {
               fontWeight: 700,
               marginBottom: '16px'
             }}>
-              🏆 ACHIEVEMENT UNLOCKED: RELATIONSHIP HISTORIAN
+              🏆 PENCAPAIAN TERBUKA: SEJARAWAN KISAH KITA
             </div>
 
             <div style={{ borderTop: '1px dashed rgba(244, 143, 177, 0.4)', paddingTop: '14px' }}>
               <p style={{ fontFamily: 'var(--font-heading)', fontSize: '1.25rem', color: 'var(--primary-dark)', fontWeight: 700, marginBottom: '4px' }}>
-                Final Score: 100/100 ❤️
+                Nilai Akhir: 100/100 ❤️
               </p>
               <p style={{ fontStyle: 'italic', fontSize: '0.85rem', color: 'var(--dark-muted)' }}>
-                "Because today, the birthday girl always wins!"
+                "Karena hari ini, birthday girl kesayangan selalu jadi pemenang!"
               </p>
             </div>
           </div>
 
           <button className="btn-primary" onClick={onComplete} id="btn-quiz-proceed">
-            CONTINUE TO CHAPTER 04 ❤️
+            LANJUT KE BAB 04 (KOTAK HARAPAN) ❤️
             <ArrowRight size={18} />
           </button>
         </div>

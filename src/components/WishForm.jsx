@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Send, CheckCircle2, Heart, Sparkles, Loader2, AlertCircle, ArrowRight } from 'lucide-react';
+import { Send, CheckCircle2, Sparkles, Loader2, AlertCircle, ArrowRight } from 'lucide-react';
 import { globalAudio } from '../utils/audioManager';
 
 export default function WishForm({ config, onComplete }) {
@@ -39,7 +39,6 @@ export default function WishForm({ config, onComplete }) {
     setStatus('submitting');
     setErrorMessage('');
 
-    // Always persist in localStorage so wishes are never lost
     try {
       localStorage.setItem('birthday_wishes_saved', JSON.stringify({
         ...formData,
@@ -47,36 +46,31 @@ export default function WishForm({ config, onComplete }) {
       }));
     } catch (_) {}
 
-    // Prepare payload
     const payload = {
       name: config.recipientName,
       quizScore: "100/100",
       ...formData
     };
 
-    // If Google Apps Script URL is provided, send POST request
     if (config.googleAppsScriptUrl && config.googleAppsScriptUrl.startsWith('http')) {
       try {
-        const response = await fetch(config.googleAppsScriptUrl, {
+        await fetch(config.googleAppsScriptUrl, {
           method: 'POST',
-          mode: 'no-cors', // standard for Google Apps Script Web Apps
+          mode: 'no-cors',
           headers: {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify(payload),
         });
 
-        // With no-cors, fetch resolves opaque response
         globalAudio.playSfx('success');
         setStatus('success');
       } catch (err) {
         console.error('Submission error:', err);
-        // Do not block user; fallback to local success while storing draft
         globalAudio.playSfx('success');
         setStatus('success');
       }
     } else {
-      // Offline / Demo mode: simulated instant delivery
       setTimeout(() => {
         globalAudio.playSfx('success');
         setStatus('success');
@@ -89,25 +83,25 @@ export default function WishForm({ config, onComplete }) {
       <div style={{ textAlign: 'center', marginBottom: '20px' }}>
         <span className="chapter-badge">
           <Sparkles size={12} />
-          Chapter 04 • The Wish Box
+          Bab 04 • Kotak Harapanmu
         </span>
-        <h2 className="section-title">🌱 YOUR NEXT CHAPTER</h2>
+        <h2 className="section-title">🌱 BABAK BARU USIA INDAHMU</h2>
         <p className="section-subtitle">
-          Another beautiful year is waiting for you. So... what do you wish for?
+          Satu tahun penuh kebaikan sedang menantimu. Nah... apa saja harapan terbesarmu?
         </p>
       </div>
 
       {status !== 'success' ? (
         <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-          {/* Question 1: 3 Wishes */}
+          {/* Pertanyaan 1: 3 Harapan */}
           <div style={{ background: '#FFFFFF', padding: '16px', borderRadius: 'var(--radius-md)', border: '1px solid rgba(244, 143, 177, 0.3)' }}>
             <label style={{ display: 'block', fontWeight: 600, color: 'var(--dark)', marginBottom: '10px', fontSize: '0.94rem' }}>
-              ✨ What are 3 things you wish for this year?
+              ✨ Sebutkan 3 hal yang paling kamu harapkan di tahun ini?
             </label>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
               <input
                 type="text"
-                placeholder="Wish #1 (Kesehatan, impian, karier...)"
+                placeholder="Harapan #1 (Kesehatan, impian, karier...)"
                 value={formData.wish1}
                 onChange={(e) => handleChange('wish1', e.target.value)}
                 required
@@ -122,7 +116,7 @@ export default function WishForm({ config, onComplete }) {
               />
               <input
                 type="text"
-                placeholder="Wish #2 (Kebahagiaan, rezeki, kedamaian...)"
+                placeholder="Harapan #2 (Kebahagiaan, rezeki, ketenangan hati...)"
                 value={formData.wish2}
                 onChange={(e) => handleChange('wish2', e.target.value)}
                 required
@@ -137,7 +131,7 @@ export default function WishForm({ config, onComplete }) {
               />
               <input
                 type="text"
-                placeholder="Wish #3 (Harapan rahasiamu...)"
+                placeholder="Harapan #3 (Harapan rahasia terindahmu...)"
                 value={formData.wish3}
                 onChange={(e) => handleChange('wish3', e.target.value)}
                 required
@@ -153,10 +147,10 @@ export default function WishForm({ config, onComplete }) {
             </div>
           </div>
 
-          {/* Question 2: Person to become */}
+          {/* Pertanyaan 2: Pribadi yang ingin dicapai */}
           <div style={{ background: '#FFFFFF', padding: '16px', borderRadius: 'var(--radius-md)', border: '1px solid rgba(244, 143, 177, 0.3)' }}>
             <label style={{ display: 'block', fontWeight: 600, color: 'var(--dark)', marginBottom: '8px', fontSize: '0.94rem' }}>
-              💭 What kind of person do you want to become this year?
+              💭 Ingin menjadi pribadi seperti apa kamu di tahun ini?
             </label>
             <textarea
               rows={3}
@@ -176,10 +170,10 @@ export default function WishForm({ config, onComplete }) {
             />
           </div>
 
-          {/* Question 3: Experience together */}
+          {/* Pertanyaan 3: Momen bersama */}
           <div style={{ background: '#FFFFFF', padding: '16px', borderRadius: 'var(--radius-md)', border: '1px solid rgba(244, 143, 177, 0.3)' }}>
             <label style={{ display: 'block', fontWeight: 600, color: 'var(--dark)', marginBottom: '8px', fontSize: '0.94rem' }}>
-              ❤️ What is one thing you want us to experience together?
+              ❤️ Satu hal apa yang paling ingin kita jalani dan alami bersama?
             </label>
             <textarea
               rows={2}
@@ -199,14 +193,14 @@ export default function WishForm({ config, onComplete }) {
             />
           </div>
 
-          {/* Question 4: Dream Gift */}
+          {/* Pertanyaan 4: Hadiah impian */}
           <div style={{ background: '#FFFFFF', padding: '16px', borderRadius: 'var(--radius-md)', border: '1px solid rgba(244, 143, 177, 0.3)' }}>
             <label style={{ display: 'block', fontWeight: 600, color: 'var(--dark)', marginBottom: '8px', fontSize: '0.94rem' }}>
-              🎁 If I could give you one thing this year, what would you wish for?
+              🎁 Kalau aku bisa mewujudkan satu hal/kado untukmu tahun ini, apa yang kamu inginkan?
             </label>
             <textarea
               rows={2}
-              placeholder="Boleh barang impian, janji manis, atau waktu luang..."
+              placeholder="Boleh barang impian, janji manis, atau waktu luang bersama..."
               value={formData.dreamGift}
               onChange={(e) => handleChange('dreamGift', e.target.value)}
               required
@@ -222,10 +216,10 @@ export default function WishForm({ config, onComplete }) {
             />
           </div>
 
-          {/* Question 5: Dream Destination */}
+          {/* Pertanyaan 5: Destinasi impian */}
           <div style={{ background: '#FFFFFF', padding: '16px', borderRadius: 'var(--radius-md)', border: '1px solid rgba(244, 143, 177, 0.3)' }}>
             <label style={{ display: 'block', fontWeight: 600, color: 'var(--dark)', marginBottom: '8px', fontSize: '0.94rem' }}>
-              🌎 Is there somewhere you really want to visit?
+              🌎 Apakah ada tempat impian yang sangat ingin kamu kunjungi bersamaku?
             </label>
             <input
               type="text"
@@ -247,7 +241,7 @@ export default function WishForm({ config, onComplete }) {
           {status === 'error' && (
             <div style={{ background: '#FFEBEE', padding: '12px 16px', borderRadius: 'var(--radius-sm)', color: '#C62828', display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.9rem' }}>
               <AlertCircle size={18} />
-              <span>{errorMessage || "Hmm... couldn't reach the sheet, but your wishes are safely kept. Try again!"}</span>
+              <span>{errorMessage || "Harapanmu tetap tersimpan aman di perangkat ini. Coba lagi yuk!"}</span>
             </div>
           )}
 
@@ -260,18 +254,18 @@ export default function WishForm({ config, onComplete }) {
             {status === 'submitting' ? (
               <>
                 <Loader2 size={18} className="animate-spin" />
-                Sending your wishes... Please wait ❤️
+                Sedang mengirimkan harapanmu... Tunggu ya sayang ❤️
               </>
             ) : (
               <>
                 <Send size={18} />
-                💌 SEND MY WISHES
+                KIRIM HARAPANKU DENGAN CINTA 💌
               </>
             )}
           </button>
         </form>
       ) : (
-        /* Success Confirmation Screen */
+        /* Tampilan Berhasil */
         <div style={{ textAlign: 'center', animation: 'scaleUp 0.3s ease', padding: '10px 0' }}>
           <div
             style={{
@@ -291,7 +285,7 @@ export default function WishForm({ config, onComplete }) {
           </div>
 
           <h3 style={{ fontFamily: 'var(--font-heading)', color: '#2E7D32', fontSize: '1.45rem', marginBottom: '8px' }}>
-            💌 MESSAGE RECEIVED
+            💌 PESAN HARAPAN TELAH DITERIMA
           </h3>
 
           <div
@@ -305,15 +299,15 @@ export default function WishForm({ config, onComplete }) {
             }}
           >
             <p style={{ color: 'var(--dark-muted)', fontSize: '0.98rem', lineHeight: '1.6', marginBottom: '10px' }}>
-              Your wishes have been safely delivered to my heart!
+              Seluruh harapan manismu sudah tersimpan rapi dan aman di lubuk hatiku!
             </p>
             <p style={{ fontStyle: 'italic', fontSize: '0.92rem', color: 'var(--primary-dark)', fontWeight: 600 }}>
-              "Don't worry... I'll read every single word carefully and do my best to make them come true. ❤️"
+              "Tenang saja... aku akan membaca setiap kata dengan teliti dan berusaha mewujudkannya bersamamu. ❤️"
             </p>
           </div>
 
           <button className="btn-primary" onClick={onComplete} id="btn-proceed-memories">
-            PROCEED TO CHAPTER 05 • OUR MEMORIES ❤️
+            LANJUT KE BAB 05 • KENANGAN KITA ❤️
             <ArrowRight size={18} />
           </button>
         </div>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Mail, Heart, Sparkles, ArrowRight, Eye, FastForward } from 'lucide-react';
+import { Mail, Heart, ArrowRight, FastForward } from 'lucide-react';
 import { globalAudio } from '../utils/audioManager';
 
 export default function LoveLetter({ config, onComplete }) {
@@ -30,10 +30,9 @@ export default function LoveLetter({ config, onComplete }) {
       if (charIdx < currentFullP.length) {
         const timer = setTimeout(() => {
           setCharIdx((prev) => prev + 1);
-        }, 16); // Gentle typewriter speed
+        }, 16);
         return () => clearTimeout(timer);
       } else {
-        // Current paragraph completed
         setDisplayedParagraphs((prev) => [...prev, currentFullP]);
         setCurrentPIdx((prev) => prev + 1);
         setCharIdx(0);
@@ -47,7 +46,7 @@ export default function LoveLetter({ config, onComplete }) {
     <div className="glass-card" style={{ maxWidth: '580px', width: '100%', margin: '0 auto', textAlign: 'center' }}>
       <span className="chapter-badge">
         <Mail size={12} />
-        Chapter 06 • Personal Message
+        Bab 06 • Pesan Dari Lubuk Hati
       </span>
 
       <h2 className="section-title">💌 {config.letter.title}</h2>
@@ -95,20 +94,20 @@ export default function LoveLetter({ config, onComplete }) {
               <Heart size={22} fill="#FFFFFF" />
             </div>
             <span style={{ marginTop: '10px', fontSize: '0.8rem', fontFamily: 'var(--font-playful)', fontWeight: 700, color: 'var(--primary-dark)' }}>
-              CLICK TO OPEN 💌
+              KLIK UNTUK BUKA SURAT 💌
             </span>
           </div>
 
           <p style={{ fontStyle: 'italic', fontSize: '0.92rem', color: 'var(--dark-muted)', marginBottom: '24px' }}>
-            "A letter written just for you, from the deepest corner of my heart."
+            "Sebuah surat cinta tulus yang kutulis khusus untukmu dari lubuk hatiku yang terdalam."
           </p>
 
           <button className="btn-primary" onClick={handleOpenLetter} id="btn-open-envelope">
-            Buka Surat Cintamu ❤️
+            Buka Surat Cintamu Sekarang ❤️
           </button>
         </div>
       ) : (
-        /* Unfolded Letter Content */
+        /* Surat Terbuka */
         <div style={{ animation: 'fadeIn 0.4s ease', textAlign: 'left' }}>
           <div
             style={{
@@ -124,21 +123,21 @@ export default function LoveLetter({ config, onComplete }) {
           >
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid rgba(244, 143, 177, 0.25)', paddingBottom: '12px', marginBottom: '18px' }}>
               <span style={{ fontFamily: 'var(--font-script)', fontSize: '1.4rem', color: 'var(--primary-dark)', fontWeight: 700 }}>
-                Dearest {config.recipientName},
+                Untuk Kesayanganku, {config.recipientName}
               </span>
               <span style={{ fontSize: '0.78rem', color: 'var(--secondary)' }}>
                 {config.birthdayDate}
               </span>
             </div>
 
-            {/* Displayed paragraphs */}
+            {/* Paragraf yang sudah selesai diketik */}
             {displayedParagraphs.map((p, idx) => (
               <p key={idx} style={{ color: 'var(--dark)', fontSize: '0.95rem', marginBottom: '16px' }}>
                 {p}
               </p>
             ))}
 
-            {/* Currently typing paragraph */}
+            {/* Paragraf yang sedang berjalan efek mengetik */}
             {!isFullyRevealed && currentPIdx < paragraphs.length && (
               <p style={{ color: 'var(--dark)', fontSize: '0.95rem', marginBottom: '16px' }}>
                 {paragraphs[currentPIdx].slice(0, charIdx)}
@@ -146,7 +145,7 @@ export default function LoveLetter({ config, onComplete }) {
               </p>
             )}
 
-            {/* Signoff */}
+            {/* Tanda tangan penutup */}
             {isFullyRevealed && (
               <div style={{ marginTop: '24px', textAlign: 'right', borderTop: '1px dashed rgba(244, 143, 177, 0.3)', paddingTop: '16px' }}>
                 <p style={{ fontStyle: 'italic', fontSize: '0.88rem', color: 'var(--secondary)' }}>
@@ -168,7 +167,7 @@ export default function LoveLetter({ config, onComplete }) {
             )}
 
             <button className="btn-primary" onClick={onComplete} id="btn-proceed-certificate">
-              CLAIM YOUR OFFICIAL CERTIFICATE 🎓
+              KLAIM SERTIFIKAT RESMI KELULUSANMU 🎓
               <ArrowRight size={18} />
             </button>
           </div>
