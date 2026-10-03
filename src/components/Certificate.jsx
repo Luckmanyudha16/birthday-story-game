@@ -119,7 +119,7 @@ export default function Certificate({ config, onComplete }) {
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', borderTop: '1px solid rgba(212, 175, 55, 0.3)', paddingTop: '14px', marginTop: '8px' }}>
             <div style={{ textAlign: 'left' }}>
               <span style={{ fontSize: '0.72rem', color: '#8D6E63', display: 'block' }}>Tanggal Diberikan:</span>
-              <strong style={{ fontSize: '0.82rem', color: '#4E342E' }}>{config.birthdayDate}</strong>
+              <strong style={{ fontSize: '0.82rem', color: '#4E342E' }}>12 Oktober 2026</strong>
             </div>
 
             <div style={{ textAlign: 'right' }}>

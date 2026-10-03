@@ -23,7 +23,7 @@ export default function WishForm({ config, onComplete }) {
       if (saved) {
         setFormData(JSON.parse(saved));
       }
-    } catch (_) {}
+    } catch (_) { }
   }, []);
 
   const handleChange = (field, value) => {
@@ -31,7 +31,7 @@ export default function WishForm({ config, onComplete }) {
     setFormData(updated);
     try {
       localStorage.setItem('birthday_wishes_draft', JSON.stringify(updated));
-    } catch (_) {}
+    } catch (_) { }
   };
 
   const handleSubmit = async (e) => {
@@ -44,7 +44,7 @@ export default function WishForm({ config, onComplete }) {
         ...formData,
         timestamp: new Date().toISOString(),
       }));
-    } catch (_) {}
+    } catch (_) { }
 
     const payload = {
       name: config.recipientName,
@@ -173,7 +173,7 @@ export default function WishForm({ config, onComplete }) {
           {/* Pertanyaan 3: Momen bersama */}
           <div style={{ background: '#FFFFFF', padding: '16px', borderRadius: 'var(--radius-md)', border: '1px solid rgba(244, 143, 177, 0.3)' }}>
             <label style={{ display: 'block', fontWeight: 600, color: 'var(--dark)', marginBottom: '8px', fontSize: '0.94rem' }}>
-              ❤️ Satu hal apa yang paling ingin kita jalani dan alami bersama?
+              ❤️ Satu hal apa yang paling ingin kita jalani dengan bersama - bersama?
             </label>
             <textarea
               rows={2}

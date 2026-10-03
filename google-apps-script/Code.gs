@@ -1,34 +1,53 @@
 /**
  * GOOGLE APPS SCRIPT FOR BIRTHDAY ADVENTURE WISH SUBMISSION
  * 
- * CARA MENGGUNAKAN:
- * 1. Buka Google Sheets baru di https://sheets.google.com
- * 2. Beri nama spreadsheet, misalnya: "Birthday Adventure Wishes - [Nama Pasangan]"
- * 3. Buka menu Extensions > Apps Script (Ekstensi > Apps Script).
- * 4. Hapus seluruh kode default di Apps Script editor, lalu paste kode ini.
- * 5. Ganti variabel EMAIL_RECIPIENT di bawah ini dengan alamat email Anda (jika ingin menerima notifikasi email).
- * 6. Klik tombol "Save" (ikon disket).
- * 7. Klik tombol "Deploy" (Terapkan) > "New deployment" (Penerapan baru).
- * 8. Pada ikon roda gigi "Select type", pilih "Web app" (Aplikasi web).
- * 9. Konfigurasi:
- *    - Description: Birthday Wishes API
+ * SPREADSHEET TARGET:
+ * https://docs.google.com/spreadsheets/d/1pF-qkBZtk4j9XjPmN2ej7UsOy2ZoZoGhc8QAs56dkxg/edit?usp=sharing
+ * 
+ * CARA SETUP:
+ * 1. Buka spreadsheet Anda: https://docs.google.com/spreadsheets/d/1pF-qkBZtk4j9XjPmN2ej7UsOy2ZoZoGhc8QAs56dkxg/edit
+ * 2. Klik menu "Extensions" > "Apps Script" (atau "Ekstensi" > "Apps Script").
+ * 3. Hapus semua kode default di editor, lalu paste SEMUA isi file ini.
+ * 4. (Opsional) Ganti EMAIL_RECIPIENT dengan email Anda jika ingin menerima notifikasi email saat pasangan mengirim harapan.
+ * 5. Klik icon "Save" (Disket).
+ * 6. Klik tombol "Deploy" (biru di kanan atas) > "New deployment" (Penerapan baru).
+ * 7. Klik icon gerigi "Select type", pilih "Web app".
+ * 8. Konfigurasi:
+ *    - Description: Birthday Wish Form
  *    - Execute as: Me (emailanda@gmail.com)
- *    - Who has access: Anyone (Siapa saja)  <-- PENTING agar website static bisa mengirim data tanpa login Google
- * 10. Klik "Deploy", beri izin (Authorize Access / Izinkan).
- * 11. Salin "Web App URL" yang berakhiran `/exec`.
- * 12. Buka file `src/data/birthdayConfig.js` di project ini, dan tempelkan URL tersebut ke `googleAppsScriptUrl: "https://script.google.com/macros/s/.../exec"`.
+ *    - Who has access: Anyone (Siapa saja)  <-- SANGAT PENTING agar form bisa kirim tanpa login Google
+ * 9. Klik "Deploy" -> Klik "Authorize access" -> Pilih akun Google Anda -> Klik "Advanced" -> Klik "Go to Birthday Wish Form (unsafe)" -> Klik "Allow".
+ * 10. Salin "Web App URL" yang berakhiran `/exec`.
+ * 11. Buka file `src/data/birthdayConfig.js`, lalu tempel URL tersebut di:
+ *     googleAppsScriptUrl: "https://script.google.com/macros/s/AKfycb.../exec"
  */
+
+// ID Spreadsheet Anda (diambil dari link spreadsheet Anda)
+const SPREADSHEET_ID = "1pF-qkBZtk4j9XjPmN2ej7UsOy2ZoZoGhc8QAs56dkxg";
 
 // Ganti dengan alamat email Anda untuk menerima notifikasi saat pasangan submit form
 const EMAIL_RECIPIENT = "ganti_dengan_email_anda@gmail.com"; 
-const SEND_EMAIL_NOTIFICATION = true; // Ubah ke false jika tidak ingin notifikasi email
+const SEND_EMAIL_NOTIFICATION = false; // Ubah ke true jika ingin notifikasi email
+
+function getTargetSheet() {
+  let ss;
+  try {
+    ss = SpreadsheetApp.getActiveSpreadsheet();
+    if (!ss) {
+      ss = SpreadsheetApp.openById(SPREADSHEET_ID);
+    }
+  } catch (err) {
+    ss = SpreadsheetApp.openById(SPREADSHEET_ID);
+  }
+  return ss.getActiveSheet() || ss.getSheets()[0];
+}
 
 function doPost(e) {
   const lock = LockService.getScriptLock();
   lock.tryLock(10000);
 
   try {
-    const sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+    const sheet = getTargetSheet();
     
     // Siapkan Header jika baris pertama masih kosong
     if (sheet.getLastRow() === 0) {
@@ -44,7 +63,7 @@ function doPost(e) {
         "Dream Gift",
         "Dream Destination"
       ]);
-      // Format header row bold
+      // Format header row bold dengan warna background pastel lembut
       sheet.getRange(1, 1, 1, 10).setFontWeight("bold").setBackground("#FCE4EC");
     }
 
@@ -96,7 +115,9 @@ ${data.dreamGift || "-"}
 ${data.dreamDestination || "-"}
 ----------------------------------------
 
-Buka Google Sheet kamu untuk melihat riwayat lengkapnya.
+Buka Google Sheet kamu untuk melihat riwayat lengkapnya:
+https://docs.google.com/spreadsheets/d/1pF-qkBZtk4j9XjPmN2ej7UsOy2ZoZoGhc8QAs56dkxg/edit
+
 Selamat merayakan hari ulang tahunnya! 🎉
       `;
       MailApp.sendEmail(EMAIL_RECIPIENT, emailSubject, emailBody);

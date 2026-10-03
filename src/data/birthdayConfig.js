@@ -5,7 +5,7 @@
 
 export const birthdayConfig = {
   // Nama Pasangan / Birthday Girl
-  recipientName: "Herlin Ochtorisa",
+  recipientName: "Bibiyku Herlin Ochtorisa",
   recipientNickname: "Sayang",
 
   // Nama Pengirim / Pasangan
@@ -17,7 +17,7 @@ export const birthdayConfig = {
 
   // Konfigurasi Musik
   music: {
-    background: "/music/background.mp3",
+    background: "/music/Nadhif Basalamah.mp3",
     birthday: "/music/happy-birthday.mp3",
     defaultVolume: 0.25,
   },
@@ -64,7 +64,7 @@ export const birthdayConfig = {
     title: "SURAT DARI HATIKU UNTUKMU",
     opening: "Oke sayang... nggak ada lagi kuis. Nggak ada lagi misi. Sekarang aku cuma ingin menyampaikan sesuatu yang tulus dari lubuk hatiku yang terdalam.",
     paragraphs: [
-      "Selamat ulang tahun yang paling hangat untuk orang paling spesial di seluruh semestaku, Herlin Ochtorisa.",
+      "Selamat ulang tahun yang paling hangat untuk orang paling spesial di seluruh semestaku, Bibiyku.",
       "Waktu pertama kali kita kenal dan dekat, aku nggak pernah menyangka kalau hari-hari ke depannya bakal seindah, sehangat, dan sebermakna ini bareng kamu. Kamu itu seperti rumah tempat aku selalu ingin pulang—tempat di mana aku bisa jadi diriku sendiri seutuhnya tanpa rasa ragu sedikit pun.",
       "Terima kasih sudah bertahan sejauh ini, terima kasih sudah selalu berjuang dengan tulus dan penuh kasih, terima kasih atas tawa renyahmu yang selalu berhasil menghapus segala lelahku, dan terima kasih sudah memilih untuk terus melangkah bersamaku.",
       "Di usiamu yang baru ini, doaku selalu menyertaimu: semoga setiap langkahmu selalu dipeluk ketenangan dan hal-hal baik. Semoga mimpi-mimpimu yang indah pelan-pelan terwujud nyata, dan setiap tetes lelahmu selalu digantikan oleh kebahagiaan berlipat ganda.",
@@ -87,7 +87,7 @@ export const birthdayConfig = {
   },
 
   // Google Apps Script Web App URL untuk pengiriman form wishes
-  googleAppsScriptUrl: "",
+  googleAppsScriptUrl: "https://script.google.com/macros/s/AKfycbz1L5heMHMUci0A_P0AfWEKpIPXDcJwsbvIzbDphJ_vHKHRXVT1orUEdP-JWLUveEd0/exec",
 
   // Easter Eggs Texts
   easterEggs: {

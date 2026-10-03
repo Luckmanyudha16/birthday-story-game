@@ -7,12 +7,12 @@ export const quizQuestions = [
     question: "Di mana kita pertama kali kenal atau ngobrol untuk pertama kalinya?",
     options: [
       "Di cafe estetik pas lagi ngopi santai",
-      "Lewat chat / pesan yang awalnya cuma iseng",
+      "Di rumah temen yang awalnya cuma iseng",
       "Di perpustakaan kayak adegan drama korea",
       "Di mimpi sebelum akhirnya jadi kenyataan"
     ],
     correctAnswer: 1,
-    correctFeedback: "🎉 BENAR BANGET! Berawal dari chat santai, sekarang kamu jadi orang paling berharga buat aku.",
+    correctFeedback: "🎉 BENAR BANGET! Berawal dari ngobrol santai, sekarang kamu jadi orang paling berharga buat aku.",
     wrongFeedback: "Hmm... masa lupa sih sayang? 😂 Aku kasih kesempatan coba lagi karena hari ini kamu yang ulang tahun!"
   },
   {
@@ -25,7 +25,7 @@ export const quizQuestions = [
       "Kucing tetangga yang nggak sengaja kepencet"
     ],
     correctAnswer: 1,
-    correctFeedback: "✨ TEPAT SEKALI! Mana mungkin aku melewatkan kesempatan emas buat chat bidadari kayak kamu duluan.",
+    correctFeedback: "✨ TEPAT SEKALI! Mana mungkin aku melewatkan kesempatan emas buat chat bidadari kayak bibiy duluan.",
     wrongFeedback: "Yakin begitu? Coba ingat-ingat lagi siapa yang ngumpulin keberanian pertama kali! 😜"
   },
   {
@@ -60,7 +60,7 @@ export const quizQuestions = [
     options: [
       "Ketawa ngakak sampai sakit perut gara-gara hal sepele",
       "Debat 2 jam milih makan apa, ujung-ujungnya beli yang biasa",
-      "Niru-niru suara aneh terus salting sendiri",
+      "Niru-niru pembalap kalo lagi berkendara",
       "Semua jawaban di atas benar dan sering banget terjadi!"
     ],
     correctAnswer: 3,
@@ -73,11 +73,11 @@ export const quizQuestions = [
     options: [
       "Waktu jalan santai sambil ngobrolin impian masa depan",
       "Waktu kehujanan bareng terus makan yang hangat-hangat",
-      "Waktu natap langit malam sambil dengerin lagu favorit",
+      "Waktu natap langit malam ketika camping sambil dengerin lagu favorit",
       "Setiap detik yang dihabiskan bersamamu adalah momen terbaikku"
     ],
     correctAnswer: 3,
-    correctFeedback: "💖 BINGO! Bersama Herlin, hal sesederhana apa pun berubah jadi memori terindah di hidupku.",
+    correctFeedback: "💖 BINGO! Bersama bibiy, hal sesederhana apa pun berubah jadi memori terindah di hidupku.",
     wrongFeedback: "Pilihan yang manis, tapi ada satu jawaban yang paling mewakili perasaanku lho!"
   }
 ];
