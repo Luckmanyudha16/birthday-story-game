@@ -16,6 +16,16 @@ export default function WishForm({ config, onComplete }) {
   const [status, setStatus] = useState('idle'); // 'idle' | 'submitting' | 'success' | 'error'
   const [errorMessage, setErrorMessage] = useState('');
 
+  const initialFormData = {
+    wish1: '',
+    wish2: '',
+    wish3: '',
+    personToBecome: '',
+    wishTogether: '',
+    dreamGift: '',
+    dreamDestination: '',
+  };
+
   // Restore saved draft if any
   useEffect(() => {
     try {
@@ -34,22 +44,36 @@ export default function WishForm({ config, onComplete }) {
     } catch (_) { }
   };
 
+  const handleClearForm = () => {
+    setFormData(initialFormData);
+    try {
+      localStorage.removeItem('birthday_wishes_draft');
+    } catch (_) { }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus('submitting');
     setErrorMessage('');
 
-    try {
-      localStorage.setItem('birthday_wishes_saved', JSON.stringify({
-        ...formData,
-        timestamp: new Date().toISOString(),
-      }));
-    } catch (_) { }
-
+    // Payload dikirim dari formData saat ini
     const payload = {
       name: config.recipientName,
       quizScore: "100/100",
       ...formData
+    };
+
+    // Bersihkan draft dari localStorage seketika saat submit
+    try {
+      localStorage.removeItem('birthday_wishes_draft');
+      localStorage.removeItem('birthday_wishes_saved');
+    } catch (_) { }
+
+    const onFinish = () => {
+      globalAudio.playSfx('success');
+      // Kosongkan form input langsung agar jika dimulai ulang form sudah bersih/kosong
+      setFormData(initialFormData);
+      setStatus('success');
     };
 
     if (config.googleAppsScriptUrl && config.googleAppsScriptUrl.startsWith('http')) {
@@ -63,17 +87,14 @@ export default function WishForm({ config, onComplete }) {
           body: JSON.stringify(payload),
         });
 
-        globalAudio.playSfx('success');
-        setStatus('success');
+        onFinish();
       } catch (err) {
         console.error('Submission error:', err);
-        globalAudio.playSfx('success');
-        setStatus('success');
+        onFinish();
       }
     } else {
       setTimeout(() => {
-        globalAudio.playSfx('success');
-        setStatus('success');
+        onFinish();
       }, 1200);
     }
   };

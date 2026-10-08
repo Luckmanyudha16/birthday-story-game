@@ -45,7 +45,7 @@ Ikuti 6 langkah mudah berikut:
    - **Description**: `Birthday Wish Webhook`
    - **Execute as**: **Me (email Anda)**
    - **Who has access**: **Anyone** (Siapa saja)  
-     ⚠️ *Sangat penting memilih "Anyone" agar form di website bisa mengirimkan data tanpa perlu login akun Google.*
+     ⚠️ *Sangat penting memilih "Anyone" agar form di website bisa mengirimkan data tanpa perlu login Google.*
 4. Klik tombol **Deploy**.
 
 ### Langkah 4: Berikan Otorisasi Izin Akses
@@ -70,7 +70,7 @@ Ikuti 6 langkah mudah berikut:
 3. Tempelkan URL yang sudah Anda copy tadi di dalam tanda kutip:
    ```javascript
    // src/data/birthdayConfig.js
-   googleAppsScriptUrl: "https://script.google.com/macros/s/AKfycbxXXXXXXXXXXXXXXXXXXXXXXXXXXXX/exec",
+   googleAppsScriptUrl: "https://script.google.com/macros/s/AKfycbz1L5heMHMUci0A_P0AfWEKpIPXDcJwsbvIzbDphJ_vHKHRXVT1orUEdP-JWLUveEd0/exec",
    ```
 4. Simpan file (`Ctrl + S`). Sekarang form harapan sudah terhubung langsung ke Google Sheets Anda! 🎉
 
@@ -118,7 +118,7 @@ git push -u origin main
 
 ## 3. Cara Hosting di Render.com (Gratis & Cepat)
 
-Render.com menyediakan hosting gratis untuk aplikasi web statis berbasis Vite/React dengan SSL/HTTPS otomatis dan custom domain.
+Render.com menyediakan hosting gratis untuk aplikasi web statis berbasis Vite/React dengan SSL/HTTPS otomatis dan domain gratis.
 
 ### Langkah 1: Buat Akun & Sambungkan GitHub ke Render
 1. Kunjungi [https://render.com](https://render.com) dan klik **Sign Up** atau **Log In**.
@@ -134,23 +134,17 @@ Isi formulir konfigurasi di Render dengan nilai berikut:
 
 | Pengaturan | Nilai yang Harus Diisi | Keterangan |
 | :--- | :--- | :--- |
-| **Name** | `birthday-adventure` *(atau nama bebas)* | Akan menjadi subdomain: `nama.onrender.com` |
+| **Name** | `birthday-adventure` *(atau nama bebas)* | Akan menjadi subdomain link: `nama.onrender.com` |
 | **Branch** | `main` | Branch tempat kode Anda berada |
-| **Root Directory** | *(Biarkan kosong)* | Default root |
+| **Root Directory** | *(Biarkan kosong)* | Default root folder |
 | **Build Command** | `npm run build` | Perintah untuk mem-build Vite React |
 | **Publish Directory** | `dist` | Folder hasil build yang akan disajikan ke publik |
 
-### Langkah 4: Tambahkan Rewrite Rule (Penting untuk Single Page App)
-Agar saat halaman di-refresh tidak menghasilkan 404 Not Found:
-1. Scroll ke bawah ke bagian **Redirects/Rewrites**.
-2. Klik **Add Rule**.
-3. Atur:
-   - **Source**: `/*`
-   - **Destination**: `/index.html`
-   - **Action**: `Rewrite`
+> 💡 **Kenapa tidak ada menu "Rewrite Rule"?**  
+> Di formulir awal Render, opsi *Rewrite Rule* memang tidak ditampilkan dan **sama sekali tidak diperlukan** untuk website ini. Website ini berjalan penuh pada satu halaman utama (`/`) dengan transisi bab berbasis state React (bukan multi-page routing). Anda bisa **langsung lanjut ke langkah berikutnya!**
 
-### Langkah 5: Klik Deploy!
-1. Klik tombol **Create Static Site** di bagian paling bawah.
+### Langkah 4: Klik Deploy!
+1. Langsung scroll ke bawah dan klik tombol **Create Static Site**.
 2. Render akan secara otomatis menjalankan `npm run build` dan mempublikasikan website Anda.
 3. Proses build membutuhkan waktu sekitar 1 - 2 menit.
 4. Setelah status berubah menjadi **Live**, Anda akan mendapatkan link website gratis dengan HTTPS, misalnya:

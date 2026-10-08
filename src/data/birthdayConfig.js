@@ -22,6 +22,14 @@ export const birthdayConfig = {
     defaultVolume: 0.25,
   },
 
+  // Gerbang Password Lucu-lucuan di Awal
+  initialPassword: {
+    title: "EITSS, MASUKKAN PASSWORD DULU! 🔐",
+    subtitle: "Website ini dikunci khusus! Cuma kesayangan Luckman yang tau password rahasianya.",
+    correctPassword: "pacarmu yang ganteng Luckman",
+    hint: "Siapa cowok paling ganteng di dunia yang jadi pacarmu? 😉",
+  },
+
   // Chapter 02: Love Verification
   verification: {
     title: "VERIFIKASI CINTA 🔐",
