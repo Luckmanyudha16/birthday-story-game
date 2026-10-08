@@ -21,18 +21,18 @@ Website interaktif spesial ulang tahun yang romantis, menyenangkan, dan berkesan
 ## 1. Cara Menghubungkan Wish Form ke Google Sheet
 
 Harapan yang ditulis pasangan di **Bab 04 (Kotak Harapan)** akan otomatis terkirim dan tersimpan rapi ke Google Spreadsheet Anda:
-👉 **[Link Google Spreadsheet Anda](https://docs.google.com/spreadsheets/d/1pF-qkBZtk4j9XjPmN2ej7UsOy2ZoZoGhc8QAs56dkxg/edit?usp=sharing)**
+👉 **[Link Google Spreadsheet Anda](https://docs.google.com/spreadsheets/)**
 
 Ikuti 6 langkah mudah berikut:
 
 ### Langkah 1: Buka Google Apps Script
 1. Buka spreadsheet Anda melalui browser:
-   `https://docs.google.com/spreadsheets/d/1pF-qkBZtk4j9XjPmN2ej7UsOy2ZoZoGhc8QAs56dkxg/edit`
+   `https://docs.google.com/spreadsheets`
 2. Di menu bagian atas, klik **Extensions** (atau **Ekstensi**) lalu pilih **Apps Script**.
 
 ### Langkah 2: Masukkan Kode Script
 1. Di halaman editor Google Apps Script yang baru terbuka, hapus semua kode bawaan yang ada (misal `function myFunction() {}`).
-2. Buka file [google-apps-script/Code.gs](file:///d:/project%20my%20gf/google-apps-script/Code.gs) di project ini, **copy semua isinya**, lalu **paste** ke editor Apps Script.
+2. Buka file [google-apps-script/Code.gs](file:///) di project ini, **copy semua isinya**, lalu **paste** ke editor Apps Script.
 3. *(Opsional)* Jika Anda ingin mendapatkan notifikasi email setiap kali pasangan mengirim harapan:
    - Ganti `ganti_dengan_email_anda@gmail.com` pada baris `EMAIL_RECIPIENT` dengan alamat email Gmail Anda.
    - Ubah `const SEND_EMAIL_NOTIFICATION = false;` menjadi `true;`.
@@ -65,12 +65,12 @@ Ikuti 6 langkah mudah berikut:
 2. Klik tombol **Copy** di samping URL tersebut.
 
 ### Langkah 6: Tempel URL ke Project Website
-1. Buka file [src/data/birthdayConfig.js](file:///d:/project%20my%20gf/src/data/birthdayConfig.js) di VS Code / editor Anda.
+1. Buka file [src/data/birthdayConfig.js](file://) di VS Code / editor Anda.
 2. Cari baris `googleAppsScriptUrl: "",` (sekitar baris 90).
 3. Tempelkan URL yang sudah Anda copy tadi di dalam tanda kutip:
    ```javascript
    // src/data/birthdayConfig.js
-   googleAppsScriptUrl: "https://script.google.com/macros/s/AKfycbz1L5heMHMUci0A_P0AfWEKpIPXDcJwsbvIzbDphJ_vHKHRXVT1orUEdP-JWLUveEd0/exec",
+   googleAppsScriptUrl: "https://script.google.com/macros/s/exec",
    ```
 4. Simpan file (`Ctrl + S`). Sekarang form harapan sudah terhubung langsung ke Google Sheets Anda! 🎉
 
